@@ -1,0 +1,2241 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : 127.0.0.1:3399
+Source Server Version : 50155
+Source Host           : localhost:3399
+Source Database       : wcp
+
+Target Server Type    : MYSQL
+Target Server Version : 50155
+File Encoding         : 65001
+
+Date: 2019-09-15 17:17:16
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `alone_app_version`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_app_version`;
+CREATE TABLE `alone_app_version` (
+  `version` varchar(32) NOT NULL DEFAULT '',
+  `update_time` varchar(32) DEFAULT NULL,
+  `update_user` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_app_version
+-- ----------------------------
+INSERT INTO `alone_app_version` VALUES ('v4.3.0.free', '2019-08-29 17:43:18', 'USERNAME');
+
+-- ----------------------------
+-- Table structure for `alone_applog`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_applog`;
+CREATE TABLE `alone_applog` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `DESCRIBES` varchar(1024) NOT NULL,
+  `APPUSER` varchar(32) NOT NULL,
+  `LEVELS` varchar(32) DEFAULT NULL,
+  `METHOD` varchar(128) DEFAULT NULL,
+  `CLASSNAME` varchar(128) DEFAULT NULL,
+  `IP` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_9` (`APPUSER`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_applog
+-- ----------------------------
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e91ec10000', '20190818212716', '操作:登录/登录页 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', 'NONE', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e93f650002', '20190818212725', '更新用户信息,操作对象ID:40288b854a329988014a329a12f30002 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e9b05b0004', '20190818212754', '创建分类信息,操作对象ID:4028b8816ca4e896016ca4e9af030003 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e9bff10005', '20190818212758', '操作:[操作对象ID:4028b8816ca4e896016ca4e9af030003]访问分类/123 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e9e31f000b', '20190818212807', '操作:[操作对象ID:4028b8816ca4e896016ca4e9e17a0008]创建知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e9e38d000c', '20190818212807', '创建知识信息,操作对象ID:4028b8816ca4e896016ca4e9e17a0008 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca4e896016ca4e9e784000e', '20190818212808', '操作:[操作对象ID:4028b8816ca4e896016ca4e9e17a0008]知识访问/asdf / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98d02840000', '20190819190446', '操作:登录/登录页 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', 'NONE', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e083e0009', '20190819190553', '操作:[操作对象ID:4028b8816ca98c55016ca98e06400005]创建知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e087a000a', '20190819190553', '创建知识信息,操作对象ID:4028b8816ca98c55016ca98e06400005 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e0bb00011', '20190819190554', '操作:[操作对象ID:4028b8816ca98c55016ca98e0a2c000d]创建知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e0beb0012', '20190819190554', '创建知识信息,操作对象ID:4028b8816ca98c55016ca98e0a2c000d / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e13d00014', '20190819190556', '操作:[操作对象ID:4028b8816ca98c55016ca98e06400005]知识访问/VCG41502848193.jpg / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e2ea60016', '20190819190603', '操作:[操作对象ID:4028b8816ca98c55016ca98e0a2c000d]知识访问/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca98c55016ca98e40d90018', '20190819190607', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]预览附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca991957d0000', '20190819190946', '操作:登录/登录页 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', 'NONE', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca9919e750002', '20190819190948', '操作:[操作对象ID:4028b8816ca98c55016ca98e0a2c000d]知识访问/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca991a2fa0003', '20190819190949', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]预览附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca991ff6e0004', '20190819191013', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]访问附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca99204a70005', '20190819191014', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]预览附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca99212320007', '20190819191018', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]访问附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca99214480008', '20190819191018', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]预览附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992a016000a', '20190819191054', '操作:[操作对象ID:4028b8816ca98c55016ca98e0a2c000d]知识访问/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992a439000b', '20190819191055', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]预览附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992becb000d', '20190819191102', '操作:[操作对象ID:4028b8816ca98c55016ca98e0a2c000d]知识访问/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992bfb3000e', '20190819191102', '操作:[操作对象ID:4028b8816ca98c55016ca98dedb30002]预览附件/应急预案.xlsx / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992d426000f', '20190819191107', '操作:[操作对象ID:4028b8816ca98c55016ca98e0a2c000d]刪除知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992d4860010', '20190819191107', '删除知识信息,操作对象ID:4028b8816ca98c55016ca98e0a2c000d / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992e0190012', '20190819191110', '操作:[操作对象ID:4028b8816ca98c55016ca98e06400005]知识访问/VCG41502848193.jpg / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992ef480013', '20190819191114', '操作:[操作对象ID:4028b8816ca98c55016ca98e06400005]刪除知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992ef6e0014', '20190819191114', '删除知识信息,操作对象ID:4028b8816ca98c55016ca98e06400005 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca992fc6e0016', '20190819191118', '操作:[操作对象ID:4028b8816ca4e896016ca4e9e17a0008]知识访问/asdf / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca9930e790017', '20190819191122', '操作:[操作对象ID:4028b8816ca4e896016ca4e9e17a0008]刪除知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca9930e990018', '20190819191122', '删除知识信息,操作对象ID:4028b8816ca4e896016ca4e9e17a0008 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816ca9911b016ca9938c990019', '20190819191155', '更新分类信息,操作对象ID:4028b8816ca4e896016ca4e9af030003 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdcd01d016cdcdf3d600000', '20190829181513', '操作:登录/登录页 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', 'NONE', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce485080000', '20190829182059', '操作:登录/登录页 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', 'NONE', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce55e470008', '20190829182155', '创建知识信息,操作对象ID:4028b8816cdce291016cdce55c000004 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce55e940009', '20190829182155', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]创建知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce56328000a', '20190829182156', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]知识访问/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce57075000c', '20190829182159', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce5c11f000e', '20190829182220', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]知识访问/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce5c5d4000f', '20190829182221', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce7783e0010', '20190829182412', '操作:[操作对象ID:4028b8816ca4e896016ca4e9af030003]访问分类/测试分类 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce787860011', '20190829182416', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]知识访问/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce789280012', '20190829182417', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce797330013', '20190829182420', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce799ab0014', '20190829182421', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce7a75b0015', '20190829182424', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce7adbc0016', '20190829182426', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce7c47f0017', '20190829182432', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce83d160019', '20190829182503', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]知识访问/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce847b9001a', '20190829182505', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce84ee4001b', '20190829182507', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce855da001c', '20190829182509', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce8c858001d', '20190829182538', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]知识访问/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce8d229001e', '20190829182541', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]下载附件 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdce8e1d1001f', '20190829182545', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdcea58720021', '20190829182721', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdcea5a150022', '20190829182721', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdcead0500023', '20190829182752', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]访问附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdcead7530024', '20190829182753', '操作:[操作对象ID:4028b8816cdce291016cdce54d400001]预览附件/内容1.txt / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdcf19b900025', '20190829183517', '操作:[操作对象ID:4028b8816cdce291016cdce55c000004]刪除知识 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+INSERT INTO `alone_applog` VALUES ('4028b8816cdce291016cdcf19cab0026', '20190829183517', '删除知识信息,操作对象ID:4028b8816cdce291016cdce55c000004 / 操作用户:40288b854a329988014a329a12f30002[系统管理员]', '40288b854a329988014a329a12f30002', 'INFO', 'info', 'com.farm.web.log.WcpLog', '127.0.0.1');
+
+-- ----------------------------
+-- Table structure for `alone_auth_action`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_action`;
+CREATE TABLE `alone_auth_action` (
+  `ID` varchar(32) NOT NULL,
+  `AUTHKEY` varchar(128) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `COMMENTS` varchar(128) DEFAULT NULL,
+  `CTIME` varchar(14) NOT NULL,
+  `UTIME` varchar(14) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `MUSER` varchar(32) NOT NULL,
+  `STATE` char(1) NOT NULL,
+  `CHECKIS` char(1) NOT NULL,
+  `LOGINIS` char(1) NOT NULL COMMENT '默认所有ACTION都要登录',
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB alone_action';
+
+-- ----------------------------
+-- Records of alone_auth_action
+-- ----------------------------
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38408e014a384de88a0005', 'action/list', '权限管理_权限定义', null, '20141211154357', '20141211154357', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38b3a6700017', 'actiontree/list', '权限管理_权限构造', null, '20141211173505', '20141211173505', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38b93d0a0022', 'log/list', '系统配置_系统日志', '', '20141211174111', '20150831184926', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38ba24f90024', 'parameter/list', '系统配置_参数定义', '', '20141211174210', '20150831185312', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38bafb830026', 'parameter/editlist', '系统配置_系统参数', '', '20141211174305', '20151016154936', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38bb431b0028', 'parameter/userelist', '系统配置_个性化参数', '', '20141211174324', '20151016154959', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38bd26a0002a', 'dictionary/list', '系统配置_数据字典', '', '20141211174527', '20150831185552', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38beae79002d', 'user/list', '组织用户管理_用户管理', '', '20141211174708', '20150831185712', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a38974f014a38bf10fc002f', 'organization/list', '组织用户管理_组织机构管理', '', '20141211174733', '20150831185753', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a3daac8014a3dfe03990005', 'FarmPortalComponentConsole', '门户管理_组件库', null, '20141212181424', '20141212181424', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a3daac8014a3dfefcce0007', 'FarmPortalPortaltreeConsole', '门户管理_门户配置', null, '20141212181528', '20141212181528', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a3e037e014a3e1d76810003', 'FarmFormsFormcategoryConsole', '动态表单_表单分类', null, '20141212184845', '20141212184845', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a3e037e014a3e1e46150005', 'FarmFormsQueryConsole', '动态表单_查询表单配置', null, '20141212184939', '20141212184939', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a50d918014a50dbdc460002', 'HhYWConsole', '系统配置_数据库管理', null, '20141216100953', '20141216100953', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a50d918014a50dcfa580005', 'qzTrigger/list', '任务调度_触发器定义', '', '20141216101106', '20171211230511', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a50d918014a50ddb7400007', 'qzTask/list', '任务调度_任务定义', '', '20141216101155', '20171211230536', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854a50d918014a50def0aa0009', 'qzScheduler/list', '任务调度_调度实例', null, '20141216101315', '20141216101315', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4a9a155d014a9a1790810003', 'docfile/list', '文档管理_附件管理', '', '20141230152723', '20150831185928', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4a9a155d014a9a182dbb0005', 'FarmDocgroupUser_ACTION_CONSOLE', '文档管理_工作小组管理', null, '20141230152803', '20141230152803', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4a9a155d014a9a1905200007', 'docgroup/list', '文档管理_工作小组管理', '', '20141230152858', '20150831190059', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4a9a155d014a9a1a32940009', 'FarmDocmessage_ACTION_CONSOLE', '文档管理_文档留言', null, '20141230153015', '20141230153015', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4a9a155d014a9a1a8dd3000b', 'doctype/list', '文档管理_文档分类', '', '20141230153039', '20150831190127', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4a9a155d014a9a1afe60000d', 'doc/list', '文档管理_文档管理', '', '20141230153108', '20150901182811', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854ab4231a014ab45e15850003', 'FarmCodeProject_ACTION_CONSOLE', '代码工程_工程定义', null, '20150104175432', '20150104175432', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288b854ab4231a014ab45ee9fb0005', 'FarmCodeGuide_ACTION_CONSOLE', '代码工程_生成向导', null, '20150104175526', '20150104175526', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402888a84f970dad014f971444550009', 'farmtop/list', '文档管理_置顶文档', '', '20150904143851', '20150904144025', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4add11f6014add19da9d000a', 'FarmPlanTaskConsole', '当前任务_计划任务', null, '20150112154426', '20150112154426', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402894ca4ae0e797014ae1ab12120031', 'lucene/list', '文档管理_全文索引', '', '20150113130132', '20150831190209', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402888a850472ac50150472d85070009', 'weburl/list', '文档管理_推荐服务', '', '20151008191936', '20151008191936', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402888a8509d16e201509d191db90009', 'farmReleaseRanking/list', '文档管理_用户文档排名', '', '20151025114440', '20151025114440', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402888a850bcceeb0150bcd7f9780009', 'usermessage/list', '用户消息', '', '20151031154122', '20151031154122', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a2831b355de72390155de787d000014', 'resumebase/list', '简历管理_简历查询', null, '20160712173806', '20160712173806', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a2831b3563f530701563f5821e40000', 'expert/list', '简历管理_专家管理', null, '20160731130555', '20160731130555', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a2831b3573c10d0015741b2273c0018', 'user/online', '系统配置_在线用户', null, '20160919170617', '20160919170617', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a2831b3577bd11201578a0a22ef0035', 'webHotCase/list', '文档管理_检索热词', null, '20161003181502', '20161003181502', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a2831b35ac74f63015ae477e873005d', 'question/list', '问答管理_问答管理', null, '20170319104907', '20170319104907', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a2831b35ac74f63015ae47881d3005f', 'fqaIndex/list', '检索管理_问答索引', null, '20170319104947', '20170319104947', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5b2782a6015b281052a50060', 'typedemo/list', '知识管理_模板管理', null, '20170401135010', '20170401135010', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5bfb0c93015bfb42f2ca0000', 'docspecial/list', '知识管理_知识专题', null, '20170512140520', '20170512140520', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8af5c60d5c215c54015c216201ce0002', 'outuser/list', '用户管理_外部账户', null, '20170519234450', '20170519234450', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5da5d50f015da5d736060000', 'toolweb/sysbackup', '系统配置_系统备份向导', null, '20170803100531', '20170803100531', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5f94d2ef015f94f2502c0007', 'dingding/loadOrg', '用户管理_同步钉钉组织机构', null, '20171107132709', '20171107132709', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5fbd8ef3015fbd954fea0001', 'usermessage/msConsole', '用户管理_用户消息发送', '', '20171115105000', '20171115105142', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5fc2b9a6015fc2c34e9a0001', 'fileindex/list', '检索管理_附件索引', null, '20171116105820', '20171116105820', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402889ac5fc36ab9015fc3794fea0003', 'helper/readme', '系统配置_系统接口API', '', '20171116141708', '20181016161716', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('8a8580496053a94e016053bbba700001', 'wdaconvertlog/list', '运维管理_预览文件转换日志', null, '20171214143500', '20171214143500', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288918646e990f01646ea253fb0001', 'messagemodel/list', '用户消息模板', null, '20180706160809', '20180706160809', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('40288918651238b201651244b6c70001', 'typefield/list', '基本设置_分类属性', null, '20180807104337', '20180807104337', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('402880ef65b963bd0165b965a4dc0001', 'gridkpoint/list', '鐭ヨ瘑绠＄悊_鐭ヨ瘑鍥捐氨', null, '20180908213610', '20180908213610', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b881661e481c01661e4ad6280001', 'sharelink/list', '绯荤粺搴旂敤_閾炬帴鍒嗕韩', null, '20180928114832', '20180928114832', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b88167b485520167b48943230001', 'docfieldlist/list', '分类模板_分类属性查询', null, '20181216090233', '20181216090233', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b88167ca4f270167ca64cbcf0001', 'doctypejudge/list', '分类模板_分类评价管理', null, '20181220145422', '20181220145422', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b88167ca4f270167ca6610fc0003', 'docuserjudge/list', '分类模板_分类评价查询', null, '20181220145545', '20181220145545', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b88168f599280168f59acd340001', 'ldap/loadOrg', '用户管理_同步LDAP机构', null, '20190216171949', '20190216171949', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816a8194fe016a82117bce0009', 'farmdocenjoy/list', '用户管理_关注收藏', null, '20190504165905', '20190504165905', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816b352fa8016b3660a1a601cc', 'user/chooseUser', '选择用户', '', '20190608171710', '20190608171710', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '0', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816b366111016b3664ebb30002', 'user/query', '查询用户', '', '20190608172152', '20190608172152', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '0', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816b366557016b3666da4b002a', 'organization/chooseOrg', '选择组织机构', '', '20190608172358', '20190608172358', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '0', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816b366557016b3667b48a002b', 'organization/organizationTree', '查询组织机构树', '', '20190608172454', '20190608172454', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '0', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816b366557016b36682d08002c', 'post/choosePost', '选择岗位', '', '20190608172525', '20190608172525', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '0', '1');
+INSERT INTO `alone_auth_action` VALUES ('4028b8816b366557016b3668a27c002d', 'post/query', '查询岗位', '', '20190608172555', '20190608172555', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '0', '1');
+
+-- ----------------------------
+-- Table structure for `alone_auth_actiontree`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_actiontree`;
+CREATE TABLE `alone_auth_actiontree` (
+  `ID` varchar(32) NOT NULL,
+  `SORT` int(11) NOT NULL,
+  `PARENTID` varchar(32) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `TREECODE` varchar(256) NOT NULL,
+  `COMMENTS` varchar(128) DEFAULT NULL,
+  `TYPE` char(1) NOT NULL COMMENT '分类、菜单、权限',
+  `CTIME` varchar(14) NOT NULL,
+  `UTIME` varchar(14) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `UUSER` varchar(32) NOT NULL,
+  `STATE` char(1) NOT NULL,
+  `ACTIONID` varchar(32) DEFAULT NULL,
+  `DOMAIN` varchar(64) NOT NULL,
+  `ICON` varchar(64) DEFAULT NULL,
+  `IMGID` varchar(32) DEFAULT NULL,
+  `PARAMS` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_7` (`ACTIONID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB; (`action`) REFER `alone/alone_action`';
+
+-- ----------------------------
+-- Records of alone_auth_actiontree
+-- ----------------------------
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38b93d0a0023', '10', '8a2831b35ac74f63015ae4710d6a005b', '系统日志', '8a2831b35ac74f63015ae4710d6a005b40288b854a38974f014a38b93d0a0023', '', '2', '20141211174111', '20141211174111', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38b93d0a0022', 'alone', 'icon-tip', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38b3a6700018', '2', '40288b854a38408e014a384c4f3c0002', '权限构造', '40288b854a38408e014a384c4f3c000240288b854a38974f014a38b3a6700018', '', '2', '20141211173505', '20141211173505', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38b3a6700017', 'alone', 'icon-category', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38408e014a384c4f3c0002', '1', 'NONE', '系统配置', '40288b854a38408e014a384c4f3c0002', '', '1', '20141211154212', '20171216131317', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-sprocket_dark', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38bafb830027', '3', '40288b854a38408e014a384c4f3c0002', '参数设置', '40288b854a38408e014a384c4f3c000240288b854a38974f014a38bafb830027', '', '2', '20141211174305', '20151016155834', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38bafb830026', 'alone', 'icon-sprocket_dark', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38bb431b0029', '4', '40288b854a38408e014a384c4f3c0002', '个性化参数', '40288b854a38408e014a384c4f3c000240288b854a38974f014a38bb431b0029', '', '2', '20141211174324', '20141211174435', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38bb431b0028', 'alone', 'icon-client_account_template', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38bd26a0002b', '5', '40288b854a38408e014a384c4f3c0002', '数据字典', '40288b854a38408e014a384c4f3c000240288b854a38974f014a38bd26a0002b', '', '2', '20141211174527', '20141211174527', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38bd26a0002a', 'alone', 'icon-address-book', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38be1805002c', '2', 'NONE', '用户管理', '40288b854a38974f014a38be1805002c', '', '1', '20141211174629', '20170319103822', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-group_green_edit', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38beae79002e', '1', '40288b854a38974f014a38be1805002c', '用户管理', '40288b854a38974f014a38be1805002c40288b854a38974f014a38beae79002e', '', '2', '20141211174708', '20141211174708', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38beae79002d', 'alone', 'icon-hire-me', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a38974f014a38bf10fc0030', '2', '40288b854a38974f014a38be1805002c', '组织管理', '40288b854a38974f014a38be1805002c40288b854a38974f014a38bf10fc0030', '', '2', '20141211174733', '20170319103800', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38bf10fc002f', 'alone', 'icon-customers', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b355de72390155de777b700013', '6', 'NONE', '简历管理', '8a2831b355de72390155de777b700013', '', '1', '20160712173700', '20181112214903', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-cash_register_2', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b355de72390155de787d000015', '1', '8a2831b355de72390155de777b700013', '简历查询', '8a2831b355de72390155de777b7000138a2831b355de72390155de787d000015', '', '2', '20160712173806', '20170319105111', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a2831b355de72390155de787d000014', 'alone', 'icon-client_account_template', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b3563f530701563f5821e40001', '2', '402894ca4a9a155d014a9a16561d0002', '专家管理', '402894ca4a9a155d014a9a16561d00028a2831b3563f530701563f5821e40001', '', '2', '20160731130555', '20160731130555', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a2831b3563f530701563f5821e40000', 'alone', 'icon-brainstorming', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402894ca4ae0e797014ae1ab12120032', '2', '8a2831b35ac74f63015ae4710d6a005b', '知识索引', '8a2831b35ac74f63015ae4710d6a005b402894ca4ae0e797014ae1ab12120032', '', '2', '20150113130132', '20171214143549', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402894ca4ae0e797014ae1ab12120031', 'alone', 'icon-application_osx_terminal', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402888ac506eb41b01506fa9b0a30027', '1', '40288b854a38408e014a384c4f3c0002', '注册参数', '40288b854a38408e014a384c4f3c0002402888ac506eb41b01506fa9b0a30027', '', '2', '20151016160003', '20151016160003', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38974f014a38ba24f90024', 'alone', 'icon-edit', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402888a8509d16e201509d1a934d000a', '91', '40288b854a38974f014a38be1805002c', '用户排名', '40288b854a38974f014a38be1805002c402888a8509d16e201509d1a934d000a', '', '2', '20151025114616', '20171115105030', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402888a8509d16e201509d191db90009', 'alone', 'icon-statistics', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a50d918014a50dc82980004', '11', '40288b854a38408e014a384c4f3c0002', '任务调度', '40288b854a38408e014a384c4f3c000240288b854a50d918014a50dc82980004', '', '1', '20141216101036', '20141216101036', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', null, 'alone', 'icon-application_osx_terminal', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288b854a50d918014a50def0aa000a', '3', '40288b854a50d918014a50dc82980004', '调度实例', '40288b854a38408e014a384c4f3c000240288b854a50d918014a50dc8298000440288b854a50d918014a50def0aa000a', '', '2', '20141216101315', '20141216101315', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a50d918014a50def0aa0009', 'alone', 'icon-future-projects', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402894ca4a9a155d014a9a16561d0002', '4', 'NONE', '知识管理', '402894ca4a9a155d014a9a16561d0002', '', '1', '20141230152602', '20181112214918', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-archives', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402894ca4a9a155d014a9a1790810004', '1', '8a2831b35ac74f63015ae472c7ca005c', '附件管理', '8a2831b35ac74f63015ae472c7ca005c402894ca4a9a155d014a9a1790810004', '', '2', '20141230152723', '20141230152723', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402894ca4a9a155d014a9a1790810003', 'alone', 'icon-save', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402894ca4a9a155d014a9a1905200008', '3', '402894ca4a9a155d014a9a16561d0002', '小组管理', '402894ca4a9a155d014a9a16561d0002402894ca4a9a155d014a9a1905200008', '', '2', '20141230152858', '20170319104027', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402894ca4a9a155d014a9a1905200007', 'alone', 'icon-customers', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402894ca4a9a155d014a9a1a8de3000c', '2', '8a2831b35ac74f63015ae472c7ca005c', '知识分类', '8a2831b35ac74f63015ae472c7ca005c402894ca4a9a155d014a9a1a8de3000c', '', '2', '20141230153039', '20181231102726', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402894ca4a9a155d014a9a1a8dd3000b', 'alone', 'icon-category', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402894ca4a9a155d014a9a1afe60000e', '6', '402894ca4a9a155d014a9a16561d0002', '知识管理', '402894ca4a9a155d014a9a16561d0002402894ca4a9a155d014a9a1afe60000e', '', '2', '20141230153107', '20170319104221', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402894ca4a9a155d014a9a1afe60000d', 'alone', 'icon-blog', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402888a850472ac50150472e2d14000a', '8', '8a2831b35ac74f63015ae472c7ca005c', '友情链接', '8a2831b35ac74f63015ae472c7ca005c402888a850472ac50150472e2d14000a', '', '2', '20151008192019', '20181231102807', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402888a850472ac50150472d85070009', 'alone', 'icon-star', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402888a84f835c36014f835f72cb000e', '1', '40288b854a38408e014a384c4f3c0002', '权限定义', '40288b854a38408e014a384c4f3c0002402888a84f835c36014f835f72cb000e', '', '2', '20150831184834', '20150831184834', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a38408e014a384de88a0005', 'alone', 'icon-communication', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402888a84f970dad014f971545c3000a', '9', '8a2831b35ac74f63015ae472c7ca005c', '置顶文档', '8a2831b35ac74f63015ae472c7ca005c402888a84f970dad014f971545c3000a', '', '2', '20150904143957', '20150904144052', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402888a84f970dad014f971444550009', 'alone', 'icon-upcoming-work', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402888a850bcceeb0150bcd86c2e000a', '94', '40288b854a38974f014a38be1805002c', '用户消息查看', '40288b854a38974f014a38be1805002c402888a850bcceeb0150bcd86c2e000a', '', '2', '20151031154151', '20171115104859', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402888a850bcceeb0150bcd7f9780009', 'alone', 'icon-email', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b3573c10d0015741b2273c0019', '6', '8a2831b35ac74f63015ae4710d6a005b', '在线用户', '8a2831b35ac74f63015ae4710d6a005b8a2831b3573c10d0015741b2273c0019', '', '2', '20160919170617', '20160919170617', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a2831b3573c10d0015741b2273c0018', 'alone', 'icon-group_green_new', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b3577bd11201578a0a22ef0036', '5', '8a2831b35ac74f63015ae4710d6a005b', '检索热词', '8a2831b35ac74f63015ae4710d6a005b8a2831b3577bd11201578a0a22ef0036', '', '2', '20161003181502', '20161003181502', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a2831b3577bd11201578a0a22ef0035', 'alone', 'icon-cost', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b35ac74f63015ae46fbe760059', '5', 'NONE', '问答管理', '8a2831b35ac74f63015ae46fbe760059', '', '1', '20170319104012', '20181112214911', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-help', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b35ac74f63015ae4710d6a005b', '7', 'NONE', '运维管理', '8a2831b35ac74f63015ae4710d6a005b', '', '1', '20170319104138', '20171214141623', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-showreel', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b35ac74f63015ae472c7ca005c', '3', 'NONE', '基本设置', '8a2831b35ac74f63015ae472c7ca005c', '', '1', '20170319104331', '20170319104724', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '', 'alone', 'icon-settings', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b35ac74f63015ae477e873005e', '1', '8a2831b35ac74f63015ae46fbe760059', '问答管理', '8a2831b35ac74f63015ae46fbe7600598a2831b35ac74f63015ae477e873005e', '', '2', '20170319104907', '20170319104907', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a2831b35ac74f63015ae477e873005d', 'alone', 'icon-help', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a2831b35ac74f63015ae47881d30060', '3', '8a2831b35ac74f63015ae4710d6a005b', '问答索引', '8a2831b35ac74f63015ae4710d6a005b8a2831b35ac74f63015ae47881d30060', '', '2', '20170319104947', '20171214143559', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a2831b35ac74f63015ae47881d3005f', 'alone', 'icon-application_osx_terminal', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5b2782a6015b281052a50061', '1', '402894ca4a9a155d014a9a16561d0002', '模板管理', '402894ca4a9a155d014a9a16561d0002402889ac5b2782a6015b281052a50061', '', '2', '20170401135010', '20170401135010', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402889ac5b2782a6015b281052a50060', 'alone', 'icon-blogs', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5bfb0c93015bfb42f2d30001', '5', '402894ca4a9a155d014a9a16561d0002', '知识专题', '402894ca4a9a155d014a9a16561d0002402889ac5bfb0c93015bfb42f2d30001', '', '2', '20170512140520', '20170512140520', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402889ac5bfb0c93015bfb42f2ca0000', 'alone', 'icon-address', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8af5c60d5c215c54015c216201ce0003', '3', '40288b854a38974f014a38be1805002c', '外部账户', '40288b854a38974f014a38be1805002c8af5c60d5c215c54015c216201ce0003', '', '2', '20170519234450', '20170519234450', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8af5c60d5c215c54015c216201ce0002', 'alone', 'icon-group_green_new', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5da5d50f015da5d736110001', '15', '8a2831b35ac74f63015ae4710d6a005b', '系统备份向导', '8a2831b35ac74f63015ae4710d6a005b402889ac5da5d50f015da5d736110001', '', '2', '20170803100531', '20170803100623', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402889ac5da5d50f015da5d736060000', 'alone', 'icon-save', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5f94d2ef015f94f2502c0008', '92', '40288b854a38974f014a38be1805002c', '同步钉钉机构', '40288b854a38974f014a38be1805002c402889ac5f94d2ef015f94f2502c0008', '', '2', '20171107132709', '20190419113510', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', '402889ac5f94d2ef015f94f2502c0007', 'alone', 'icon-refresh', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5fbd8ef3015fbd954fea0002', '95', '40288b854a38974f014a38be1805002c', '用户消息发送', '40288b854a38974f014a38be1805002c402889ac5fbd8ef3015fbd954fea0002', '', '2', '20171115105000', '20171115105000', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402889ac5fbd8ef3015fbd954fea0001', 'alone', 'icon-contact', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5fc2b9a6015fc2c34e9a0002', '4', '8a2831b35ac74f63015ae4710d6a005b', '附件索引', '8a2831b35ac74f63015ae4710d6a005b402889ac5fc2b9a6015fc2c34e9a0002', '', '2', '20171116105820', '20171214143606', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402889ac5fc2b9a6015fc2c34e9a0001', 'alone', 'icon-application_osx_terminal', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402889ac5fc36ab9015fc3794feb0004', '99', '8a2831b35ac74f63015ae4710d6a005b', '系统接口API', '8a2831b35ac74f63015ae4710d6a005b402889ac5fc36ab9015fc3794feb0004', '', '2', '20171116141708', '20171116141708', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402889ac5fc36ab9015fc3794fea0003', 'alone', 'icon-help', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402880ef6046149d0160461a366b0001', '1', '40288b854a50d918014a50dc82980004', '任务定义', '40288b854a38408e014a384c4f3c000240288b854a50d918014a50dc82980004402880ef6046149d0160461a366b0001', '', '2', '20171211230331', '20171211230331', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a50d918014a50ddb7400007', 'alone', 'icon-business-contact', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402880ef6046149d0160461aac480002', '2', '40288b854a50d918014a50dc82980004', '触发器定义', '40288b854a38408e014a384c4f3c000240288b854a50d918014a50dc82980004402880ef6046149d0160461aac480002', '', '2', '20171211230401', '20171211230401', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288b854a50d918014a50dcfa580005', 'alone', 'icon-full-time', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('8a8580496053a94e016053bbba700002', '1', '8a2831b35ac74f63015ae4710d6a005b', '预览文件状态', '8a2831b35ac74f63015ae4710d6a005b8a8580496053a94e016053bbba700002', '', '2', '20171214143500', '20171214143529', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '8a8580496053a94e016053bbba700001', 'alone', 'icon-documents_email', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288918646e990f01646ea253fb0002', '96', '40288b854a38974f014a38be1805002c', '用户消息模板', '40288b854a38974f014a38be1805002c40288918646e990f01646ea253fb0002', '', '2', '20180706160809', '20180706160809', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288918646e990f01646ea253fb0001', 'alone', 'icon-consulting', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('40288918651238b201651244b6c70002', '4', '8a2831b35ac74f63015ae472c7ca005c', '分类属性管理', '8a2831b35ac74f63015ae472c7ca005c40288918651238b201651244b6c70002', '', '2', '20180807104337', '20181231102824', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '40288918651238b201651244b6c70001', 'alone', 'icon-report_edit', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('402880ef65b963bd0165b965a4dc0002', '7', '402894ca4a9a155d014a9a16561d0002', '知识图谱', '402894ca4a9a155d014a9a16561d0002402880ef65b963bd0165b965a4dc0002', '', '2', '20180908213610', '20181112215041', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '402880ef65b963bd0165b965a4dc0001', 'alone', 'icon-map2', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('4028b881661e481c01661e4ad6290002', '7', '8a2831b35ac74f63015ae46fbe760059', '知识链接分享', '8a2831b35ac74f63015ae46fbe7600594028b881661e481c01661e4ad6290002', '', '2', '20180928114832', '20181112215118', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '4028b881661e481c01661e4ad6280001', 'alone', 'icon-link', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('2c902a8d67ff952a016802184f020016', '5', '8a2831b35ac74f63015ae472c7ca005c', '分类属性查询', '8a2831b35ac74f63015ae472c7ca005c2c902a8d67ff952a016802184f020016', '', '2', '20181231102934', '20181231102934', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '4028b88167b485520167b48943230001', 'alone', 'icon-report', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('2c902a8d67ff952a016802193c120017', '6', '8a2831b35ac74f63015ae472c7ca005c', '分类评价管理', '8a2831b35ac74f63015ae472c7ca005c2c902a8d67ff952a016802193c120017', '', '2', '20181231103034', '20181231103034', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '4028b88167ca4f270167ca64cbcf0001', 'alone', 'icon-group_green_edit', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('2c902a8d67ff952a016802198b1c0018', '7', '8a2831b35ac74f63015ae472c7ca005c', '分类评价查询', '8a2831b35ac74f63015ae472c7ca005c2c902a8d67ff952a016802198b1c0018', '', '2', '20181231103055', '20181231103055', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '4028b88167ca4f270167ca6610fc0003', 'alone', 'icon-group_green_new', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('4028b88168f599280168f59acd350002', '93', '40288b854a38974f014a38be1805002c', '同步LDAP机构', '40288b854a38974f014a38be1805002c4028b88168f599280168f59acd350002', '', '2', '20190216171949', '20190419113518', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', '4028b88168f599280168f59acd340001', 'alone', 'icon-refresh', null, '');
+INSERT INTO `alone_auth_actiontree` VALUES ('4028b8816a8194fe016a82117bcf000a', '97', '40288b854a38974f014a38be1805002c', '用户关注收藏', '40288b854a38974f014a38be1805002c4028b8816a8194fe016a82117bcf000a', '', '2', '20190504165905', '20190504165905', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '4028b8816a8194fe016a82117bce0009', 'alone', 'icon-star', null, '');
+
+-- ----------------------------
+-- Table structure for `alone_auth_organization`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_organization`;
+CREATE TABLE `alone_auth_organization` (
+  `ID` varchar(32) NOT NULL,
+  `TREECODE` varchar(256) NOT NULL,
+  `COMMENTS` varchar(128) DEFAULT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `CTIME` varchar(14) NOT NULL,
+  `UTIME` varchar(14) NOT NULL,
+  `STATE` char(1) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `MUSER` varchar(32) NOT NULL,
+  `PARENTID` varchar(32) DEFAULT NULL,
+  `SORT` int(11) DEFAULT NULL,
+  `TYPE` char(1) NOT NULL COMMENT '组织类型：1科室、2班组、3队组、0其他',
+  `APPID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='组织类型：科室、班组、队组、其他';
+
+-- ----------------------------
+-- Records of alone_auth_organization
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_auth_outuser`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_outuser`;
+CREATE TABLE `alone_auth_outuser` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) DEFAULT NULL,
+  `ACCOUNTID` varchar(64) NOT NULL,
+  `ACCOUNTNAME` varchar(64) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_54` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_auth_outuser
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_auth_pop`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_pop`;
+CREATE TABLE `alone_auth_pop` (
+  `ID` varchar(32) NOT NULL,
+  `POPTYPE` varchar(1) NOT NULL COMMENT '1人、2组织机构、3岗位',
+  `OID` varchar(32) NOT NULL COMMENT '人ID、组织机构ID、岗位ID',
+  `ONAME` varchar(128) NOT NULL COMMENT '人NAME、组织机构NAME、岗位NAME',
+  `TARGETTYPE` varchar(64) NOT NULL COMMENT '权限业务类型',
+  `TARGETID` varchar(32) NOT NULL COMMENT '权限业务ID',
+  `TARGETNAME` varchar(128) DEFAULT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_auth_pop
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_auth_post`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_post`;
+CREATE TABLE `alone_auth_post` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `ORGANIZATIONID` varchar(32) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `EXTENDIS` varchar(2) NOT NULL COMMENT '0:否1:是（默认否）',
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_51` (`ORGANIZATIONID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_auth_post
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_auth_postaction`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_postaction`;
+CREATE TABLE `alone_auth_postaction` (
+  `ID` varchar(32) NOT NULL,
+  `MENUID` varchar(32) NOT NULL,
+  `POSTID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_8` (`MENUID`),
+  KEY `FK_Reference_9` (`POSTID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB; (`actionid`) REFER `alone/alone_actio';
+
+-- ----------------------------
+-- Records of alone_auth_postaction
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_auth_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_user`;
+CREATE TABLE `alone_auth_user` (
+  `ID` varchar(32) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `PASSWORD` varchar(32) NOT NULL COMMENT 'MD5(password+loginname)',
+  `COMMENTS` varchar(128) DEFAULT NULL,
+  `TYPE` char(1) DEFAULT NULL COMMENT '1:系统用户:2其他3超级用户',
+  `CTIME` varchar(14) NOT NULL,
+  `UTIME` varchar(14) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `MUSER` varchar(32) NOT NULL,
+  `STATE` char(1) NOT NULL,
+  `LOGINNAME` varchar(64) NOT NULL,
+  `LOGINTIME` varchar(14) DEFAULT NULL,
+  `IMGID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB alone_user';
+
+-- ----------------------------
+-- Records of alone_auth_user
+-- ----------------------------
+INSERT INTO `alone_auth_user` VALUES ('40288b854a329988014a329a12f30002', '系统管理员', '45A6964B87BEC90B5B6C6414FAF397A7', '', '3', '20141210130925', '20190327114908', 'userId', '40288b854a329988014a329a12f30002', '1', 'sysadmin', '20190829182057', '4028b8816c321f8b016c3220a126000a');
+
+-- ----------------------------
+-- Table structure for `alone_auth_userorg`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_userorg`;
+CREATE TABLE `alone_auth_userorg` (
+  `ID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `ORGANIZATIONID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `DOC_USERID` (`USERID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB; (`organizationid`) REFER `alone/alone';
+
+-- ----------------------------
+-- Records of alone_auth_userorg
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_auth_userpost`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_auth_userpost`;
+CREATE TABLE `alone_auth_userpost` (
+  `ID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `POSTID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_auth_userpost
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_dictionary_entity`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_dictionary_entity`;
+CREATE TABLE `alone_dictionary_entity` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(12) NOT NULL,
+  `UTIME` varchar(12) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `MUSER` varchar(32) NOT NULL,
+  `STATE` char(1) NOT NULL DEFAULT '',
+  `NAME` varchar(128) NOT NULL,
+  `ENTITYINDEX` varchar(128) NOT NULL,
+  `COMMENTS` varchar(128) DEFAULT NULL,
+  `TYPE` char(1) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB';
+
+-- ----------------------------
+-- Records of alone_dictionary_entity
+-- ----------------------------
+INSERT INTO `alone_dictionary_entity` VALUES ('402888a855ce21490155ce3ebb7f0000', '201607091401', '201607091401', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-期望工作性质', 'RESUME_WORKNATURE', '{全职:1, 兼职:2, 实习:3}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888a855ce21490155ce402ec90001', '201607091402', '201607091402', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-期望从事职业', 'RESUME_WORKOCCUPATION', '{开发:1, 测试:2, 项目经理:4}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888a855ce21490155ce4062ef0002', '201607091402', '201607091402', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-期望从事行业', 'RESUME_WORKINDUSTRY', '{金融业:1, IT|通信|电子|互联网:2, 政府|非盈利机构:3, 交通|运输|物流|仓储:4, 其它:99}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888a855ce21490155ce409db00003', '201607091403', '201607091403', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-工作状态', 'RESUME_WORKSTAT', '{在职:1, 离职:2}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55c54f310155c557c10f0000', '201607072031', '201607072031', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-性别', 'RESUME_SEX', '{男:1, 女:2}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55c9abb00155c9b11a730000', '201607081647', '201607081647', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-婚姻状况', 'RESUME_MARRIAGESTA', '{未婚:1, 已婚:2, 离异:3}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55c9abb00155c9b1a65e0001', '201607081648', '201607081648', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-海外工作/学习经历', 'RESUME_STUDYABROAD', '{有:1, 无:2}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55c9abb00155c9b1d83e0002', '201607081648', '201607081648', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-政治面貌', 'RESUME_ZZMM', '{中共党员(含预备党员):1, 团员:2, 群众:3, 民主党派:4, 无党派人士:5}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55c9abb00155c9ba602a000d', '201607081658', '201607081658', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-国籍', 'RESUME_NATIONALITY', '{中国:1, 其它:99}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55c9abb00155c9bec52b0011', '201607081702', '201607081702', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-证件类型', 'RESUME_OTHERTYPE', '{驾照:1, 其它:99}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55cd984d0155cdad81b30000', '201607091122', '201607091122', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-学历', 'RESUME_DEGREE', '{初中:4, 高中:8, 大专:12, 本科:16, 研究生:5, 博士生:20}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55cd984d0155cdadd46f0001', '201607091122', '201607091122', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-是否统招', 'RESUME_UNITARYIS', '{是:1, 否:2}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55ce66e90155ce7702aa0000', '201607091502', '201607091502', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-行业类别', 'RESUME_TYPE', '{IT:1, 房地产/建筑/建材/工程:2, 耐用消费品（服饰/纺织/皮革/家具/家电）:3, 医药/生物工程:4, 广告/会展/公关:5, 其它:99}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55ce66e90155ce7736ed0001', '201607091502', '201607091502', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-企业性质', 'RESUME_EPROPERTY', '{国企|央企:1, 私企:2, 外企:3, 其它:99}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55ce66e90155ce7761670002', '201607091502', '201607091502', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-企业规模', 'RESUME_ESCALE', '{20人以下:1, 20~100:2, 100~500:3, 500~1000:4, 1000~5000:5, 5000~10000:6, 10000人以上:7}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55ce66e90155ce77871a0003', '201607091503', '201607091503', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-职位月薪(税前)', 'RESUME_SALARY', '{1000以下:1, 2000~3000:2, 3000~4000:3, 4000~5000:4, 5000~7000:5, 7000~9000:7, 10000~15000:10, 15000~以上...', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402888ac55d3b5ef0155d3baf3ac0000', '201607101534', '201607101534', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '个人简历-与本人关系', 'RESUME_RELATIONTYPE', '{父母:1, 兄弟姐妹:2, 子女:3, 其他:99}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402894ca49600f600149602141820000', '201410301617', '201410301617', '12312323123123', '12312323123123', '1', '系统菜单域', 'ALONE_MENU_DOMAIN', '{前台:HOME}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('402894ca4add11f6014add1ad9cd000e', '201501121545', '201501121545', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '计划任务标签', 'PLAN_TAGS', '{日程:日程, 错误修复:错误修复}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('7263206837704f3389782fdddf33d550', '201811122059', '201811122059', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', 'niHH8X7aa8Hns5ZUIlJ6Xh5Cxuc+BbqE', 'dLRC0l1Fl/Q=', '{none}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('80b76ae70e2c408bbef8ee8ce23ba036', '201903010920', '201903010920', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', 'oxKNw8Ar28AXwkwQrkkDN+SxiQOv7WDx', 'YL+8JdqTcdA=', '{none}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('9c157c0818ef4784aa620eb3854d0f17', '201810161509', '201810161509', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', 'rYGht6RSk5hudeZx88NZ/907OP6ufvcY', '+nQHCpAShLw=', '{none}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('f1c8290d909f4ab5beeb5455e9c76ec1', '201902091940', '201902091940', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', 'niHH8X7aa8Hns5ZUIlJ6Xh5Cxuc+BbqE', 'JXAVJSQ//As=', '{none}', '1');
+INSERT INTO `alone_dictionary_entity` VALUES ('fadbb3b02dbe42bcb3ea0c47f5c39606', '201906301503', '201906301503', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '0', '13111058226', 'wcp-F2854', '{none}', '1');
+
+-- ----------------------------
+-- Table structure for `alone_dictionary_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_dictionary_type`;
+CREATE TABLE `alone_dictionary_type` (
+  `CTIME` varchar(12) NOT NULL,
+  `UTIME` varchar(12) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `MUSER` varchar(32) NOT NULL,
+  `STATE` char(1) NOT NULL,
+  `NAME` varchar(128) NOT NULL,
+  `COMMENTS` varchar(128) DEFAULT NULL,
+  `ENTITYTYPE` varchar(128) NOT NULL,
+  `ENTITY` varchar(32) NOT NULL,
+  `ID` varchar(32) NOT NULL DEFAULT '',
+  `SORT` int(11) NOT NULL,
+  `PARENTID` varchar(32) DEFAULT NULL,
+  `TREECODE` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_8` (`ENTITY`) USING BTREE,
+  CONSTRAINT `alone_dictionary_type_ibfk_1` FOREIGN KEY (`ENTITY`) REFERENCES `alone_dictionary_entity` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB alone_dictionary_type';
+
+-- ----------------------------
+-- Records of alone_dictionary_type
+-- ----------------------------
+INSERT INTO `alone_dictionary_type` VALUES ('201607091404', '201607091404', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '在职', '', '1', '402888a855ce21490155ce409db00003', '402888a855ce21490155ce41a7670004', '1', 'NONE', '402888a855ce21490155ce41a7670004');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091404', '201607091404', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '离职', '', '2', '402888a855ce21490155ce409db00003', '402888a855ce21490155ce41c5150005', '2', 'NONE', '402888a855ce21490155ce41c5150005');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091404', '201607091408', '40288b854a329988014a329a12f30002', '系统管理员', '1', '全职', '', '1', '402888a855ce21490155ce3ebb7f0000', '402888a855ce21490155ce423ae50006', '1', 'NONE', '402888a855ce21490155ce423ae50006');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091405', '201607091408', '40288b854a329988014a329a12f30002', '系统管理员', '1', '兼职', '', '2', '402888a855ce21490155ce3ebb7f0000', '402888a855ce21490155ce425f100007', '2', 'NONE', '402888a855ce21490155ce425f100007');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091405', '201607091408', '40288b854a329988014a329a12f30002', '系统管理员', '1', '实习', '', '3', '402888a855ce21490155ce3ebb7f0000', '402888a855ce21490155ce4289370008', '3', 'NONE', '402888a855ce21490155ce4289370008');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091406', '201607091406', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '金融业', '', '1', '402888a855ce21490155ce4062ef0002', '402888a855ce21490155ce4386860009', '1', 'NONE', '402888a855ce21490155ce4386860009');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091406', '201607091407', '40288b854a329988014a329a12f30002', '系统管理员', '1', 'IT|通信|电子|互联网', '', '2', '402888a855ce21490155ce4062ef0002', '402888a855ce21490155ce43be05000a', '2', 'NONE', '402888a855ce21490155ce43be05000a');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091406', '201607091406', '40288b854a329988014a329a12f30002', '系统管理员', '1', '政府|非盈利机构', '', '3', '402888a855ce21490155ce4062ef0002', '402888a855ce21490155ce43f6e6000b', '3', 'NONE', '402888a855ce21490155ce43f6e6000b');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091407', '201607091407', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '交通|运输|物流|仓储', '', '4', '402888a855ce21490155ce4062ef0002', '402888a855ce21490155ce447d79000c', '4', 'NONE', '402888a855ce21490155ce447d79000c');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091407', '201607091407', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '其它', '', '99', '402888a855ce21490155ce4062ef0002', '402888a855ce21490155ce44faac000d', '99', 'NONE', '402888a855ce21490155ce44faac000d');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091409', '201607091409', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '开发', '', '1', '402888a855ce21490155ce402ec90001', '402888a855ce21490155ce4655fa000e', '1', 'NONE', '402888a855ce21490155ce4655fa000e');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091409', '201607091409', '40288b854a329988014a329a12f30002', '系统管理员', '1', '测试', '', '2', '402888a855ce21490155ce402ec90001', '402888a855ce21490155ce466939000f', '2', 'NONE', '402888a855ce21490155ce466939000f');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091409', '201607091409', '40288b854a329988014a329a12f30002', '系统管理员', '1', '项目经理', '', '4', '402888a855ce21490155ce402ec90001', '402888a855ce21490155ce4685650010', '4', 'NONE', '402888a855ce21490155ce4685650010');
+INSERT INTO `alone_dictionary_type` VALUES ('201607072032', '201607072032', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '男', '', '1', '402888ac55c54f310155c557c10f0000', '402888ac55c54f310155c5581bc10001', '1', 'NONE', '402888ac55c54f310155c5581bc10001');
+INSERT INTO `alone_dictionary_type` VALUES ('201607072032', '201607072032', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '女', '', '2', '402888ac55c54f310155c557c10f0000', '402888ac55c54f310155c55840860002', '2', 'NONE', '402888ac55c54f310155c55840860002');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081649', '201607081649', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '有', '', '1', '402888ac55c9abb00155c9b1a65e0001', '402888ac55c9abb00155c9b224aa0003', '1', 'NONE', '402888ac55c9abb00155c9b224aa0003');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081649', '201607081649', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '无', '', '2', '402888ac55c9abb00155c9b1a65e0001', '402888ac55c9abb00155c9b24e9b0004', '2', 'NONE', '402888ac55c9abb00155c9b24e9b0004');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081649', '201607081649', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '中共党员(含预备党员)', '', '1', '402888ac55c9abb00155c9b1d83e0002', '402888ac55c9abb00155c9b2a65c0005', '1', 'NONE', '402888ac55c9abb00155c9b2a65c0005');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081649', '201607081649', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '团员', '', '2', '402888ac55c9abb00155c9b1d83e0002', '402888ac55c9abb00155c9b2cb7a0006', '2', 'NONE', '402888ac55c9abb00155c9b2cb7a0006');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081649', '201607081649', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '群众', '', '3', '402888ac55c9abb00155c9b1d83e0002', '402888ac55c9abb00155c9b2ea760007', '3', 'NONE', '402888ac55c9abb00155c9b2ea760007');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081650', '201607081650', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '民主党派', '', '4', '402888ac55c9abb00155c9b1d83e0002', '402888ac55c9abb00155c9b308cb0008', '4', 'NONE', '402888ac55c9abb00155c9b308cb0008');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081650', '201607081650', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '无党派人士', '', '5', '402888ac55c9abb00155c9b1d83e0002', '402888ac55c9abb00155c9b31ee50009', '5', 'NONE', '402888ac55c9abb00155c9b31ee50009');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081650', '201607081650', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '未婚', '', '1', '402888ac55c9abb00155c9b11a730000', '402888ac55c9abb00155c9b3727c000a', '1', 'NONE', '402888ac55c9abb00155c9b3727c000a');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081650', '201607081650', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '已婚', '', '2', '402888ac55c9abb00155c9b11a730000', '402888ac55c9abb00155c9b38991000b', '2', 'NONE', '402888ac55c9abb00155c9b38991000b');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081650', '201607081650', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '离异', '', '3', '402888ac55c9abb00155c9b11a730000', '402888ac55c9abb00155c9b39d1e000c', '3', 'NONE', '402888ac55c9abb00155c9b39d1e000c');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081658', '201607081658', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '中国', '', '1', '402888ac55c9abb00155c9ba602a000d', '402888ac55c9abb00155c9bb2246000e', '1', 'NONE', '402888ac55c9abb00155c9bb2246000e');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081659', '201607081659', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '其它', '', '99', '402888ac55c9abb00155c9ba602a000d', '402888ac55c9abb00155c9bb5a380010', '99', 'NONE', '402888ac55c9abb00155c9bb5a380010');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081703', '201607081703', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '驾照', '', '1', '402888ac55c9abb00155c9bec52b0011', '402888ac55c9abb00155c9bf2fe00012', '1', 'NONE', '402888ac55c9abb00155c9bf2fe00012');
+INSERT INTO `alone_dictionary_type` VALUES ('201607081703', '201607081703', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '其它', '', '99', '402888ac55c9abb00155c9bec52b0011', '402888ac55c9abb00155c9bf4c4d0013', '99', 'NONE', '402888ac55c9abb00155c9bf4c4d0013');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091123', '201607111614', '40288b854a329988014a329a12f30002', '系统管理员', '1', '初中', '', '4', '402888ac55cd984d0155cdad81b30000', '402888ac55cd984d0155cdae2b170002', '4', 'NONE', '402888ac55cd984d0155cdae2b170002');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091123', '201607111615', '40288b854a329988014a329a12f30002', '系统管理员', '1', '高中', '', '8', '402888ac55cd984d0155cdad81b30000', '402888ac55cd984d0155cdae47870003', '8', 'NONE', '402888ac55cd984d0155cdae47870003');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091123', '201607111615', '40288b854a329988014a329a12f30002', '系统管理员', '1', '大专', '', '12', '402888ac55cd984d0155cdad81b30000', '402888ac55cd984d0155cdaece680004', '12', 'NONE', '402888ac55cd984d0155cdaece680004');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091124', '201607111615', '40288b854a329988014a329a12f30002', '系统管理员', '1', '本科', '', '16', '402888ac55cd984d0155cdad81b30000', '402888ac55cd984d0155cdaee91f0005', '16', 'NONE', '402888ac55cd984d0155cdaee91f0005');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091124', '201607091124', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '是', '', '1', '402888ac55cd984d0155cdadd46f0001', '402888ac55cd984d0155cdaf36510006', '1', 'NONE', '402888ac55cd984d0155cdaf36510006');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091124', '201607091124', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '否', '', '2', '402888ac55cd984d0155cdadd46f0001', '402888ac55cd984d0155cdaf50df0007', '2', 'NONE', '402888ac55cd984d0155cdaf50df0007');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091503', '201607091503', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1000以下', '', '1', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce782f610004', '1', 'NONE', '402888ac55ce66e90155ce782f610004');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091504', '201607091504', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '2000~3000', '', '2', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce785c810005', '2', 'NONE', '402888ac55ce66e90155ce785c810005');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091504', '201607091504', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '3000~4000', '', '3', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce787e660006', '3', 'NONE', '402888ac55ce66e90155ce787e660006');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091504', '201607091504', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '4000~5000', '', '4', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce78b94b0007', '4', 'NONE', '402888ac55ce66e90155ce78b94b0007');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091504', '201607091504', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '5000~7000', '', '5', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce7901780008', '5', 'NONE', '402888ac55ce66e90155ce7901780008');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091505', '201607091505', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '7000~9000', '', '7', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce799aaa0009', '7', 'NONE', '402888ac55ce66e90155ce799aaa0009');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091505', '201607091505', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '10000~15000', '', '10', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce79cfb1000a', '10', 'NONE', '402888ac55ce66e90155ce79cfb1000a');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091505', '201607091505', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '15000~以上', '', '15', '402888ac55ce66e90155ce77871a0003', '402888ac55ce66e90155ce7a22be000b', '15', 'NONE', '402888ac55ce66e90155ce7a22be000b');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091506', '201607091506', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', 'IT', '', '1', '402888ac55ce66e90155ce7702aa0000', '402888ac55ce66e90155ce7ae4ba000c', '1', 'NONE', '402888ac55ce66e90155ce7ae4ba000c');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091507', '201607091507', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '房地产/建筑/建材/工程', '', '2', '402888ac55ce66e90155ce7702aa0000', '402888ac55ce66e90155ce7b2db1000d', '2', 'NONE', '402888ac55ce66e90155ce7b2db1000d');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091507', '201607091507', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '耐用消费品（服饰/纺织/皮革/家具/家电）', '', '3', '402888ac55ce66e90155ce7702aa0000', '402888ac55ce66e90155ce7ba0c2000e', '3', 'NONE', '402888ac55ce66e90155ce7ba0c2000e');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091507', '201607091507', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '医药/生物工程', '', '4', '402888ac55ce66e90155ce7702aa0000', '402888ac55ce66e90155ce7bcbb7000f', '4', 'NONE', '402888ac55ce66e90155ce7bcbb7000f');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091508', '201607091508', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '广告/会展/公关', '', '5', '402888ac55ce66e90155ce7702aa0000', '402888ac55ce66e90155ce7c03ac0010', '5', 'NONE', '402888ac55ce66e90155ce7c03ac0010');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091508', '201607091508', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '其它', '', '99', '402888ac55ce66e90155ce7702aa0000', '402888ac55ce66e90155ce7c2b450011', '99', 'NONE', '402888ac55ce66e90155ce7c2b450011');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091508', '201607091509', '40288b854a329988014a329a12f30002', '系统管理员', '1', '国企|央企', '', '1', '402888ac55ce66e90155ce7736ed0001', '402888ac55ce66e90155ce7cd0df0012', '1', 'NONE', '402888ac55ce66e90155ce7cd0df0012');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091509', '201607091509', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '私企', '', '2', '402888ac55ce66e90155ce7736ed0001', '402888ac55ce66e90155ce7cedec0013', '2', 'NONE', '402888ac55ce66e90155ce7cedec0013');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091509', '201607091509', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '外企', '', '3', '402888ac55ce66e90155ce7736ed0001', '402888ac55ce66e90155ce7d0cb70014', '3', 'NONE', '402888ac55ce66e90155ce7d0cb70014');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091509', '201607091509', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '其它', '', '99', '402888ac55ce66e90155ce7736ed0001', '402888ac55ce66e90155ce7d29d30015', '99', 'NONE', '402888ac55ce66e90155ce7d29d30015');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091510', '201607091510', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '20人以下', '', '1', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7e0d600016', '1', 'NONE', '402888ac55ce66e90155ce7e0d600016');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091510', '201607091510', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '20~100', '', '2', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7e86560017', '2', 'NONE', '402888ac55ce66e90155ce7e86560017');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091510', '201607091510', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '100~500', '', '3', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7eab010018', '3', 'NONE', '402888ac55ce66e90155ce7eab010018');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091511', '201607091511', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '500~1000', '', '4', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7ed1820019', '4', 'NONE', '402888ac55ce66e90155ce7ed1820019');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091511', '201607091511', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '1000~5000', '', '5', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7f12b3001a', '5', 'NONE', '402888ac55ce66e90155ce7f12b3001a');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091511', '201607091511', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '5000~10000', '', '6', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7f3891001b', '6', 'NONE', '402888ac55ce66e90155ce7f3891001b');
+INSERT INTO `alone_dictionary_type` VALUES ('201607091511', '201607091511', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '10000人以上', '', '7', '402888ac55ce66e90155ce7761670002', '402888ac55ce66e90155ce7f6e2d001c', '7', 'NONE', '402888ac55ce66e90155ce7f6e2d001c');
+INSERT INTO `alone_dictionary_type` VALUES ('201607101535', '201607101535', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '父母', '', '1', '402888ac55d3b5ef0155d3baf3ac0000', '402888ac55d3b5ef0155d3bb31b20001', '1', 'NONE', '402888ac55d3b5ef0155d3bb31b20001');
+INSERT INTO `alone_dictionary_type` VALUES ('201607101535', '201607101535', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '兄弟姐妹', '', '2', '402888ac55d3b5ef0155d3baf3ac0000', '402888ac55d3b5ef0155d3bb6ad90002', '2', 'NONE', '402888ac55d3b5ef0155d3bb6ad90002');
+INSERT INTO `alone_dictionary_type` VALUES ('201607101535', '201607101535', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '子女', '', '3', '402888ac55d3b5ef0155d3baf3ac0000', '402888ac55d3b5ef0155d3bb9db50003', '3', 'NONE', '402888ac55d3b5ef0155d3bb9db50003');
+INSERT INTO `alone_dictionary_type` VALUES ('201607101535', '201607101535', '40288b854a329988014a329a12f30002', '系统管理员', '1', '其他', '', '99', '402888ac55d3b5ef0155d3baf3ac0000', '402888ac55d3b5ef0155d3bbb90d0004', '99', 'NONE', '402888ac55d3b5ef0155d3bbb90d0004');
+INSERT INTO `alone_dictionary_type` VALUES ('201607111614', '201607111614', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '研究生', '', '5', '402888ac55cd984d0155cdad81b30000', '402888ac55d8bcbe0155d90576510002', '5', 'NONE', '402888ac55d8bcbe0155d90576510002');
+INSERT INTO `alone_dictionary_type` VALUES ('201607111614', '201607111614', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '博士生', '', '20', '402888ac55cd984d0155cdad81b30000', '402888ac55d8bcbe0155d905cfb50003', '20', 'NONE', '402888ac55d8bcbe0155d905cfb50003');
+INSERT INTO `alone_dictionary_type` VALUES ('201410301617', '201410301617', '12312323123123', '12312323123123', '1', '前台', '', 'HOME', '402894ca49600f600149602141820000', '402894ca49600f6001496021a7020001', '1', 'NONE', '402894ca49600f6001496021a7020001');
+INSERT INTO `alone_dictionary_type` VALUES ('201501121545', '201501121545', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '日程', '', '日程', '402894ca4add11f6014add1ad9cd000e', '402894ca4add11f6014add1b1c25000f', '1', 'NONE', '402894ca4add11f6014add1b1c25000f');
+INSERT INTO `alone_dictionary_type` VALUES ('201501121545', '201501121545', '40288b854a329988014a329a12f30002', '40288b854a329988014a329a12f30002', '1', '错误修复', '', '错误修复', '402894ca4add11f6014add1ad9cd000e', '402894ca4add11f6014add1b42c80010', '2', 'NONE', '402894ca4add11f6014add1b42c80010');
+
+-- ----------------------------
+-- Table structure for `alone_parameter`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_parameter`;
+CREATE TABLE `alone_parameter` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(12) NOT NULL,
+  `UTIME` varchar(12) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `MUSER` varchar(32) NOT NULL,
+  `NAME` varchar(128) NOT NULL,
+  `STATE` char(1) NOT NULL,
+  `PKEY` varchar(64) NOT NULL,
+  `PVALUE` varchar(2048) NOT NULL,
+  `RULES` varchar(256) DEFAULT NULL,
+  `DOMAIN` varchar(64) DEFAULT NULL,
+  `COMMENTS` varchar(256) DEFAULT NULL,
+  `VTYPE` char(1) NOT NULL COMMENT ' 文本：1 枚举：2',
+  `USERABLE` varchar(1) NOT NULL COMMENT '0否，1是',
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='InnoDB free: 12288 kB; InnoDB free: 12288 kB alone_parameter';
+
+-- ----------------------------
+-- Records of alone_parameter
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `alone_parameter_local`
+-- ----------------------------
+DROP TABLE IF EXISTS `alone_parameter_local`;
+CREATE TABLE `alone_parameter_local` (
+  `ID` varchar(32) NOT NULL,
+  `PARAMETERID` varchar(32) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PVALUE` varchar(2048) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_50` (`PARAMETERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of alone_parameter_local
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_bookmark`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_bookmark`;
+CREATE TABLE `farm_bookmark` (
+  `ID` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TYPE` varchar(1) NOT NULL COMMENT '1:doc,2:fqa,3.type',
+  `APPID` varchar(32) NOT NULL,
+  `APPNAME` varchar(256) NOT NULL,
+  `BOOKNUM` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_bookmark
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_bookmark_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_bookmark_user`;
+CREATE TABLE `farm_bookmark_user` (
+  `ID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `USERNAME` varchar(32) NOT NULL,
+  `BOOKTYPE` varchar(1) NOT NULL,
+  `BOOKTIME` varchar(16) NOT NULL,
+  `BOOKMARKID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_86` (`BOOKMARKID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_bookmark_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc`;
+CREATE TABLE `farm_doc` (
+  `TITLE` varchar(256) NOT NULL,
+  `DOCDESCRIBE` varchar(1024) DEFAULT NULL,
+  `AUTHOR` varchar(64) DEFAULT NULL,
+  `PUBTIME` varchar(14) NOT NULL,
+  `DOMTYPE` varchar(2) NOT NULL COMMENT '1.HTML文档，2.txt，3html站点',
+  `SHORTTITLE` varchar(64) DEFAULT NULL,
+  `TAGKEY` varchar(1024) DEFAULT NULL,
+  `SOURCE` varchar(256) DEFAULT NULL,
+  `TOPLEVE` int(11) DEFAULT NULL,
+  `IMGID` varchar(32) DEFAULT NULL,
+  `STATE` varchar(2) NOT NULL COMMENT '1开放、0禁用、2待审核',
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TEXTID` varchar(32) NOT NULL,
+  `WRITEPOP` varchar(2) NOT NULL COMMENT '1公开、0本人、2小组、3禁止编辑',
+  `READPOP` varchar(2) NOT NULL COMMENT '1公开、0本人、2小组、3禁用查看',
+  `RUNINFOID` varchar(32) NOT NULL,
+  `DOCGROUPID` varchar(32) DEFAULT NULL,
+  `DESCRIBETYPE` varchar(1) NOT NULL,
+  `DOCPOPIS` varchar(1) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_13` (`IMGID`),
+  KEY `FK_Reference_16` (`RUNINFOID`),
+  KEY `FK_Reference_20` (`DOCGROUPID`),
+  KEY `DOC_ETIME` (`ETIME`),
+  KEY `DOC_CUSER` (`CUSER`),
+  KEY `DOC_TEXTID` (`TEXTID`) USING BTREE,
+  CONSTRAINT `FK_Reference_13` FOREIGN KEY (`IMGID`) REFERENCES `farm_docfile` (`ID`),
+  CONSTRAINT `FK_Reference_16` FOREIGN KEY (`RUNINFOID`) REFERENCES `farm_docruninfo` (`ID`),
+  CONSTRAINT `FK_Reference_20` FOREIGN KEY (`DOCGROUPID`) REFERENCES `farm_docgroup` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_audit`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_audit`;
+CREATE TABLE `farm_doc_audit` (
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL COMMENT '1待审核、2审核通过、3审核未通过、4废弃',
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `TEXTID` varchar(32) NOT NULL,
+  `ID` varchar(32) NOT NULL,
+  `AUDITUSER` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_64` (`DOCID`),
+  KEY `FK_Reference_65` (`TEXTID`),
+  CONSTRAINT `FK_Reference_64` FOREIGN KEY (`DOCID`) REFERENCES `farm_doc` (`ID`),
+  CONSTRAINT `FK_Reference_65` FOREIGN KEY (`TEXTID`) REFERENCES `farm_doctext` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_audit
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_draft`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_draft`;
+CREATE TABLE `farm_doc_draft` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `CONTENT` longtext NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TYPE` varchar(128) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_draft
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_pop`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_pop`;
+CREATE TABLE `farm_doc_pop` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `TYPE` varchar(1) NOT NULL COMMENT '1:READ',
+  `CUSER` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_pop
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_pushinfo`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_pushinfo`;
+CREATE TABLE `farm_doc_pushinfo` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `RECEIVERIDS` text NOT NULL COMMENT 'receiver',
+  `RECEIVERNAMES` text NOT NULL,
+  `DOCIDS` text NOT NULL,
+  `DOCNAMES` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_pushinfo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_relation`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_relation`;
+CREATE TABLE `farm_doc_relation` (
+  `ID` varchar(32) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `DOCID1` varchar(32) NOT NULL,
+  `DOCID2` varchar(32) NOT NULL,
+  `NAME` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_40` (`DOCID1`),
+  KEY `FK_Reference_41` (`DOCID2`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_relation
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_special`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_special`;
+CREATE TABLE `farm_doc_special` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TITLE` varchar(64) NOT NULL,
+  `IMGID` varchar(32) DEFAULT NULL,
+  `SORT` int(11) NOT NULL,
+  `ICONID` varchar(32) DEFAULT NULL,
+  `HOMEDOCID` varchar(32) DEFAULT NULL,
+  `DOCTYPEID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='special';
+
+-- ----------------------------
+-- Records of farm_doc_special
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_speciallist`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_speciallist`;
+CREATE TABLE `farm_doc_speciallist` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `SPECIALID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `SORT` int(11) NOT NULL,
+  `MINTITLE` varchar(128) DEFAULT NULL,
+  `TYPEID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_52` (`SPECIALID`),
+  KEY `FK_Reference_s88` (`TYPEID`),
+  CONSTRAINT `FK_Reference_s88` FOREIGN KEY (`TYPEID`) REFERENCES `farm_doc_specialtype` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_speciallist
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doc_specialtype`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doc_specialtype`;
+CREATE TABLE `farm_doc_specialtype` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `SORT` int(11) NOT NULL,
+  `PARENTID` varchar(32) NOT NULL,
+  `NAME` varchar(32) NOT NULL,
+  `TREECODE` varchar(256) NOT NULL,
+  `SPECIALID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_s87` (`SPECIALID`),
+  CONSTRAINT `FK_Reference_s87` FOREIGN KEY (`SPECIALID`) REFERENCES `farm_doc_special` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doc_specialtype
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docenjoy`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docenjoy`;
+CREATE TABLE `farm_docenjoy` (
+  `ID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_17` (`DOCID`),
+  CONSTRAINT `FK_Reference_17` FOREIGN KEY (`DOCID`) REFERENCES `farm_doc` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docenjoy
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docfieldlist`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docfieldlist`;
+CREATE TABLE `farm_docfieldlist` (
+  `ID` varchar(32) NOT NULL,
+  `FIELDKEY` varchar(64) NOT NULL,
+  `FIELDVAL` varchar(1024) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_80` (`DOCID`),
+  KEY `index_fieldkey` (`FIELDKEY`),
+  CONSTRAINT `FK_Reference_80` FOREIGN KEY (`DOCID`) REFERENCES `farm_doc` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docfieldlist
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docfields`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docfields`;
+CREATE TABLE `farm_docfields` (
+  `ID` varchar(32) NOT NULL,
+  `FIELDTEXT` text COMMENT 'JSON',
+  `TEXTID` varchar(32) NOT NULL,
+  `TEXTCTIME` varchar(14) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_79` (`TEXTID`),
+  CONSTRAINT `FK_Reference_79` FOREIGN KEY (`TEXTID`) REFERENCES `farm_doctext` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docfields
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docfile`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docfile`;
+CREATE TABLE `farm_docfile` (
+  `DIR` varchar(256) NOT NULL,
+  `SERVERID` varchar(32) NOT NULL,
+  `TYPE` varchar(2) NOT NULL COMMENT '1图片',
+  `NAME` varchar(512) DEFAULT NULL,
+  `EXNAME` varchar(16) NOT NULL,
+  `LEN` float NOT NULL,
+  `FILENAME` varchar(64) NOT NULL,
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL COMMENT '1正常、0临时',
+  `DOWNUM` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docfile
+-- ----------------------------
+INSERT INTO `farm_docfile` VALUES ('\\2019\\08\\19\\19\\', '741a95e2987347cda2d0d2abc39e160b', '1', 'VCG41502848193.jpg', 'jpg', '39853', 'e3eba4a9d75040e2ac5e53edd234c3adjpg.file', '4028b8816ca98c55016ca98ddddd0001', '20190819190542', '20190819190552', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '因禁止删除图片而保留', '0', '0');
+
+-- ----------------------------
+-- Table structure for `farm_docfile_text`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docfile_text`;
+CREATE TABLE `farm_docfile_text` (
+  `ID` varchar(32) NOT NULL,
+  `DESCRIBES` text NOT NULL,
+  `FILEID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `DESCRIBESMIN` varchar(128) NOT NULL,
+  `INDEXED` varchar(1) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_49` (`FILEID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docfile_text
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docgroup`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docgroup`;
+CREATE TABLE `farm_docgroup` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `GROUPNAME` varchar(128) NOT NULL,
+  `GROUPNOTE` varchar(256) NOT NULL,
+  `GROUPTAG` varchar(256) NOT NULL,
+  `GROUPIMG` varchar(32) NOT NULL,
+  `JOINCHECK` varchar(2) NOT NULL COMMENT '1是0否',
+  `USERNUM` int(11) NOT NULL,
+  `HOMEDOCID` varchar(32) DEFAULT NULL,
+  `SORT` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docgroup
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docgroup_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docgroup_user`;
+CREATE TABLE `farm_docgroup_user` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL COMMENT '1在用，0邀请，2删除，3申请',
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `GROUPID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `LEADIS` varchar(2) NOT NULL COMMENT '1是0否',
+  `EDITIS` varchar(2) NOT NULL COMMENT '1是0否',
+  `SHOWHOME` varchar(2) NOT NULL COMMENT '1是0否',
+  `SHOWSORT` int(11) NOT NULL,
+  `APPLYNOTE` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_21` (`GROUPID`),
+  CONSTRAINT `FK_Reference_21` FOREIGN KEY (`GROUPID`) REFERENCES `farm_docgroup` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docgroup_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docmessage`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docmessage`;
+CREATE TABLE `farm_docmessage` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `READUSERID` varchar(32) NOT NULL,
+  `CONTENT` varchar(2048) NOT NULL,
+  `TITLE` varchar(64) NOT NULL,
+  `APPID` varchar(32) DEFAULT NULL COMMENT '业务公共会依据该ID查询自己相关的留言',
+  `READSTATE` varchar(2) NOT NULL COMMENT '0未读、1已读',
+  `PRAISNUM` int(11) DEFAULT NULL,
+  `CRITCISMNUM` int(11) DEFAULT NULL COMMENT 'criticism',
+  `PARENTID` varchar(32) DEFAULT NULL,
+  `REPLYNUM` int(11) DEFAULT NULL COMMENT 'reply',
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_63` (`APPID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docmessage
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docpubmessage`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docpubmessage`;
+CREATE TABLE `farm_docpubmessage` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `READUSERID` varchar(32) NOT NULL,
+  `CONTENT` varchar(2048) NOT NULL,
+  `TITLE` varchar(64) NOT NULL,
+  `APPID` varchar(32) DEFAULT NULL COMMENT '业务公共会依据该ID查询自己相关的留言',
+  `READSTATE` varchar(2) NOT NULL COMMENT '0未读、1已读',
+  `PRAISNUM` int(11) DEFAULT NULL,
+  `CRITCISMNUM` int(11) DEFAULT NULL COMMENT 'criticism',
+  `PARENTID` varchar(32) DEFAULT NULL,
+  `REPLYNUM` int(11) DEFAULT NULL COMMENT 'reply',
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docpubmessage
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docruninfo`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docruninfo`;
+CREATE TABLE `farm_docruninfo` (
+  `ID` varchar(32) NOT NULL,
+  `VISITNUM` int(11) NOT NULL,
+  `HOTNUM` int(11) NOT NULL,
+  `LASTVTIME` varchar(14) NOT NULL,
+  `PRAISEYES` int(11) NOT NULL,
+  `PRAISENO` int(11) NOT NULL,
+  `EVALUATE` int(11) NOT NULL COMMENT '好评减去差评',
+  `ANSWERINGNUM` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docruninfo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docruninfo_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docruninfo_detail`;
+CREATE TABLE `farm_docruninfo_detail` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) DEFAULT NULL,
+  `CUSER` varchar(32) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `VTYPE` varchar(2) NOT NULL COMMENT '1访问、2好评、3差评',
+  `DOCTEXTID` varchar(32) NOT NULL,
+  `RUNINFOID` varchar(32) NOT NULL,
+  `USERIP` varchar(128) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_22` (`DOCTEXTID`),
+  KEY `FK_Reference_23` (`RUNINFOID`),
+  CONSTRAINT `FK_Reference_22` FOREIGN KEY (`DOCTEXTID`) REFERENCES `farm_doctext` (`ID`),
+  CONSTRAINT `FK_Reference_23` FOREIGN KEY (`RUNINFOID`) REFERENCES `farm_docruninfo` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docruninfo_detail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_docruninfo_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_docruninfo_log`;
+CREATE TABLE `farm_docruninfo_log` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSER` varchar(32) DEFAULT NULL,
+  `CUSERNAME` varchar(64) DEFAULT NULL,
+  `CIP` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TYPE` varchar(2) NOT NULL COMMENT '1用户浏览',
+  `DOCID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_55` (`DOCID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_docruninfo_log
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctext`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctext`;
+CREATE TABLE `farm_doctext` (
+  `TEXT` longtext NOT NULL,
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL COMMENT '1在用内容。2.版本存档3.待审核',
+  `DOCID` varchar(32) DEFAULT NULL COMMENT '存档版本时记录其所对照的文档id',
+  PRIMARY KEY (`ID`),
+  KEY `UNIQUE_DOCID` (`DOCID`) USING HASH
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctext
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctype`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype`;
+CREATE TABLE `farm_doctype` (
+  `NAME` varchar(128) NOT NULL,
+  `SORT` int(11) NOT NULL,
+  `TYPE` varchar(2) NOT NULL COMMENT '1内容，2建设，3结构，4链接，5单页',
+  `LINKURL` varchar(256) DEFAULT NULL,
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PARENTID` varchar(32) NOT NULL,
+  `TREECODE` varchar(256) NOT NULL DEFAULT '',
+  `TAGS` varchar(256) DEFAULT NULL,
+  `AUDITPOP` varchar(1) NOT NULL,
+  `WRITEPOP` varchar(1) NOT NULL,
+  `READPOP` varchar(1) NOT NULL,
+  `VIEWPOP` varchar(1) NOT NULL,
+  `DOWNPOP` varchar(1) NOT NULL,
+  `DOCNUM` int(11) NOT NULL,
+  `QUESTIONNUM` int(11) NOT NULL,
+  `TAGSNUM` int(11) NOT NULL,
+  `KNOWSHOW` varchar(1) NOT NULL,
+  `FQASHOW` varchar(1) NOT NULL,
+  `MANAGEPOP` varchar(1) NOT NULL,
+  `SHOWMODEL` varchar(1) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `DOCTYPE_STATE` (`PSTATE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype
+-- ----------------------------
+INSERT INTO `farm_doctype` VALUES ('测试分类', '1', '3', null, '4028b8816ca4e896016ca4e9af030003', '20190818212753', '20190819191154', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', null, '1', 'NONE', '4028b8816ca4e896016ca4e9af030003', null, '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '3', '1');
+
+-- ----------------------------
+-- Table structure for `farm_doctype_demo`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype_demo`;
+CREATE TABLE `farm_doctype_demo` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `DEMOTEXT` text NOT NULL,
+  `TYPEID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_39` (`TYPEID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype_demo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctype_field`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype_field`;
+CREATE TABLE `farm_doctype_field` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `TYPEID` varchar(32) NOT NULL,
+  `SOURCETYPEID` varchar(32) DEFAULT NULL COMMENT '默认为NONE',
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `FIELDTITLE` varchar(64) NOT NULL,
+  `FIELDCODE` varchar(32) NOT NULL,
+  `VALIDATES` varchar(256) DEFAULT NULL,
+  `REQUIRED` varchar(1) NOT NULL COMMENT '1是，0否',
+  `INPUTTYPE` varchar(1) NOT NULL COMMENT '1text，2select，3checkbox，4texteare',
+  `INPUTENUMS` varchar(512) DEFAULT NULL,
+  `SORTNUM` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_78` (`TYPEID`),
+  KEY `index_fieldcode` (`FIELDCODE`),
+  CONSTRAINT `FK_Reference_78` FOREIGN KEY (`TYPEID`) REFERENCES `farm_doctype` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype_field
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctype_judge`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype_judge`;
+CREATE TABLE `farm_doctype_judge` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `TYPEID` varchar(32) NOT NULL,
+  `SOURCETYPEID` varchar(32) DEFAULT NULL COMMENT '默认为NONE',
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `JUDGETITLE` varchar(64) NOT NULL,
+  `JUDGECODE` varchar(32) NOT NULL,
+  `SORTNUM` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype_judge
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctype_pop`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype_pop`;
+CREATE TABLE `farm_doctype_pop` (
+  `ID` varchar(32) NOT NULL,
+  `POPTYPE` varchar(1) NOT NULL COMMENT '1人、2组织机构',
+  `FUNTYPE` varchar(1) NOT NULL COMMENT '1浏览、2编辑、3审核',
+  `OID` varchar(32) NOT NULL,
+  `ONAME` varchar(64) NOT NULL,
+  `TYPEID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Referencetypepop` (`TYPEID`),
+  CONSTRAINT `FK_Referencetypepop` FOREIGN KEY (`TYPEID`) REFERENCES `farm_doctype` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype_pop
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctype_tag`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype_tag`;
+CREATE TABLE `farm_doctype_tag` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TITLE` varchar(64) NOT NULL,
+  `TYPEID` varchar(32) NOT NULL,
+  `TYPETAG` varchar(128) DEFAULT NULL,
+  `SORT` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_53` (`TYPEID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype_tag
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_doctype_topdoc`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_doctype_topdoc`;
+CREATE TABLE `farm_doctype_topdoc` (
+  `ID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `TYPEID` varchar(32) NOT NULL,
+  `SORT` int(11) NOT NULL,
+  `STATE` varchar(1) NOT NULL COMMENT '1启用，0禁用',
+  `TITLE` varchar(128) DEFAULT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `CTIME` varchar(14) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_59` (`TYPEID`),
+  KEY `FK_Reference_60` (`DOCID`),
+  CONSTRAINT `FK_Reference_59` FOREIGN KEY (`TYPEID`) REFERENCES `farm_doctype` (`ID`),
+  CONSTRAINT `FK_Reference_60` FOREIGN KEY (`DOCID`) REFERENCES `farm_doc` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_doctype_topdoc
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_expert`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_expert`;
+CREATE TABLE `farm_expert` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `SORT` int(11) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_77` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='expert';
+
+-- ----------------------------
+-- Records of farm_expert
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_grid_kpoint`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_grid_kpoint`;
+CREATE TABLE `farm_grid_kpoint` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERID` varchar(32) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `NAME` varchar(128) NOT NULL,
+  `KNOWTYPE` varchar(1) NOT NULL COMMENT '1.֪ʶ��2.ר�⡢3.С�顢4.���ࡢ5��������',
+  `APPTITLE` varchar(128) NOT NULL,
+  `APPKEY` varchar(128) NOT NULL,
+  `POINTTYPE` varchar(1) NOT NULL COMMENT '1.��ͨ��2.���ġ�3.����',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_grid_kpoint
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_grid_relation`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_grid_relation`;
+CREATE TABLE `farm_grid_relation` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `EUSERID` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `OPOINTID` varchar(32) NOT NULL,
+  `DPOINTID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_81` (`OPOINTID`),
+  KEY `FK_Reference_82` (`DPOINTID`),
+  CONSTRAINT `FK_Reference_81` FOREIGN KEY (`OPOINTID`) REFERENCES `farm_grid_kpoint` (`ID`),
+  CONSTRAINT `FK_Reference_82` FOREIGN KEY (`DPOINTID`) REFERENCES `farm_grid_kpoint` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_grid_relation
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_message_bean`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_message_bean`;
+CREATE TABLE `farm_message_bean` (
+  `ID` varchar(32) NOT NULL,
+  `BEANTITLE` varchar(128) NOT NULL,
+  `BEANKEY` varchar(128) NOT NULL,
+  `MODELID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_85` (`MODELID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_message_bean
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_message_model`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_message_model`;
+CREATE TABLE `farm_message_model` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TITLE` varchar(512) NOT NULL,
+  `TYPEKEY` varchar(128) NOT NULL,
+  `OVERER` varchar(128) NOT NULL,
+  `TITLEMODEL` varchar(512) NOT NULL,
+  `CONTENTMODEL` varchar(512) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_message_model
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_message_sender`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_message_sender`;
+CREATE TABLE `farm_message_sender` (
+  `ID` varchar(32) NOT NULL,
+  `MODELID` varchar(32) NOT NULL,
+  `APPID` varchar(32) NOT NULL,
+  `TYPE` varchar(1) NOT NULL COMMENT '1:��',
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_57` (`MODELID`),
+  CONSTRAINT `FK_Reference_57` FOREIGN KEY (`MODELID`) REFERENCES `farm_message_model` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='FARM_MESSAGE_SENDER';
+
+-- ----------------------------
+-- Records of farm_message_sender
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_qz_scheduler`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_qz_scheduler`;
+CREATE TABLE `farm_qz_scheduler` (
+  `ID` varchar(32) NOT NULL,
+  `AUTOIS` varchar(2) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TASKID` varchar(32) NOT NULL,
+  `TRIGGERID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_18` (`TASKID`),
+  KEY `FK_Reference_19` (`TRIGGERID`),
+  CONSTRAINT `FK_Reference_18` FOREIGN KEY (`TASKID`) REFERENCES `farm_qz_task` (`ID`),
+  CONSTRAINT `FK_Reference_19` FOREIGN KEY (`TRIGGERID`) REFERENCES `farm_qz_trigger` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_qz_scheduler
+-- ----------------------------
+INSERT INTO `farm_qz_scheduler` VALUES ('4028b881696cdefe01696cdffc160001', '1', '20190311211012', '20190311211012', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', null, '4028b8816904e2cb016904e50e740002', '40288039604a1af401604a1c55ed0002');
+INSERT INTO `farm_qz_scheduler` VALUES ('4028b881696cdefe01696ce01e000002', '1', '20190311211020', '20190311211020', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', null, '4028b8816904e2cb016904e44eba0001', '40288039604a1af401604a1c55ed0002');
+INSERT INTO `farm_qz_scheduler` VALUES ('4028b881696cdefe01696ce04aab0003', '1', '20190311211032', '20190311211032', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', null, '40288039604a1af401604a1bc0350001', '40288039604a1af401604a1c55ed0002');
+
+-- ----------------------------
+-- Table structure for `farm_qz_task`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_qz_task`;
+CREATE TABLE `farm_qz_task` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `JOBCLASS` varchar(128) NOT NULL,
+  `NAME` varchar(128) NOT NULL,
+  `JOBPARAS` varchar(1024) DEFAULT NULL,
+  `JOBKEY` varchar(128) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_qz_task
+-- ----------------------------
+INSERT INTO `farm_qz_task` VALUES ('40288039604a1af401604a1bc0350001', '20171212174340', '20171212174340', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', '', 'com.farm.wcp.task.LuceneIndexMergeTask', '合并索引文件', '', 'NONE');
+INSERT INTO `farm_qz_task` VALUES ('402880ef60c115a10160c11982290007', '20180104201602', '20180104201602', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', '', 'com.farm.wcp.oauth2.dingding.task.AutoSyncOrgsJob', '同步钉钉组织机构', '', 'NONE');
+INSERT INTO `farm_qz_task` VALUES ('4028b8816904e2cb016904e44eba0001', '20190219163425', '20190219163425', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', '', 'com.farm.doc.quartz.task.TypeContentNumRefreshTask', '分类下知识问答数量刷新任务', '', 'NONE');
+INSERT INTO `farm_qz_task` VALUES ('4028b8816904e2cb016904e50e740002', '20190219163514', '20190219163514', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', '', 'com.farm.wcp.oauth2.ldap.task.AutoSyncOrgsJob', 'LDAP组织机构同步任务', '', 'NONE');
+
+-- ----------------------------
+-- Table structure for `farm_qz_trigger`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_qz_trigger`;
+CREATE TABLE `farm_qz_trigger` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `DESCRIPT` varchar(128) NOT NULL,
+  `NAME` varchar(128) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_qz_trigger
+-- ----------------------------
+INSERT INTO `farm_qz_trigger` VALUES ('40288039604a1af401604a1c55ed0002', '20171212174419', '20171212174419', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', '每年每月每日2时1分1秒', '1 1 2 * * ? *', '每日凌晨执行');
+
+-- ----------------------------
+-- Table structure for `farm_resume_appraisal`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_appraisal`;
+CREATE TABLE `farm_resume_appraisal` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `APPRAISAL` varchar(512) NOT NULL,
+  `CAREERGOALS` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_71` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='appraisal';
+
+-- ----------------------------
+-- Records of farm_resume_appraisal
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_resume_base`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_base`;
+CREATE TABLE `farm_resume_base` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(2000) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `SEX` varchar(2) DEFAULT NULL COMMENT '1男 2女',
+  `BIRTHDAY` varchar(16) DEFAULT NULL COMMENT 'birthday',
+  `DATEYEAR` varchar(8) DEFAULT NULL COMMENT 'DATEYEAR',
+  `DATEMONTH` varchar(8) DEFAULT NULL,
+  `REGISTEREDAREA` varchar(16) DEFAULT NULL,
+  `REGISTERED` varchar(128) DEFAULT NULL,
+  `LIVESTRAREA` varchar(16) DEFAULT NULL,
+  `LIVESTR` varchar(128) DEFAULT NULL,
+  `QQCODE` varchar(16) DEFAULT NULL,
+  `WXCODE` varchar(16) DEFAULT NULL,
+  `MOBILECODE` varchar(16) DEFAULT NULL,
+  `EMAILCODE` varchar(32) DEFAULT NULL,
+  `MARRIAGESTA` varchar(2) DEFAULT NULL COMMENT '1未婚2已婚3离异 ',
+  `NATIONALITY` varchar(16) DEFAULT NULL,
+  `OTHERTYPE` varchar(32) DEFAULT NULL,
+  `OTHERID` varchar(32) DEFAULT NULL,
+  `IDCODE` varchar(32) DEFAULT NULL,
+  `STUDYABROAD` varchar(2) DEFAULT NULL COMMENT ' 1有 2 无   ',
+  `ZZMM` varchar(2) DEFAULT NULL COMMENT '1中共党员(含预备党员) 2团员3群众4民主党派5无党派人士 ',
+  `PHOTOID` varchar(32) DEFAULT NULL,
+  `DEGREEMAX` varchar(2) DEFAULT NULL,
+  `PHONECODE` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_70` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='FARM_Resume';
+
+-- ----------------------------
+-- Records of farm_resume_base
+-- ----------------------------
+INSERT INTO `farm_resume_base` VALUES ('4028b8816ca4e896016ca4e93ed90001', '20190818212725', '20190818212725', '系统管理员', '40288b854a329988014a329a12f30002', '系统管理员', '40288b854a329988014a329a12f30002', '1', null, '40288b854a329988014a329a12f30002', '系统管理员', null, null, null, null, null, null, null, null, null, null, null, '123@126.com', null, null, null, null, null, null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for `farm_resume_educate`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_educate`;
+CREATE TABLE `farm_resume_educate` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `DATETIME` varchar(16) DEFAULT NULL,
+  `DATEEND` varchar(16) DEFAULT NULL,
+  `SCHOOLNAME` varchar(64) NOT NULL,
+  `UNITARYIS` varchar(2) DEFAULT NULL COMMENT '1是2 否',
+  `SPECIALITYNAME` varchar(128) DEFAULT NULL,
+  `DEGREE` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_72` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='educate';
+
+-- ----------------------------
+-- Records of farm_resume_educate
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_resume_family`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_family`;
+CREATE TABLE `farm_resume_family` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `RELATIONTYPE` varchar(2) NOT NULL,
+  `NAME` varchar(32) DEFAULT NULL,
+  `BIRTH` varchar(16) DEFAULT NULL,
+  `PHONE` varchar(16) DEFAULT NULL,
+  `ZZMM` varchar(2) DEFAULT NULL,
+  `WORDADDR` varchar(64) DEFAULT NULL,
+  `ADDR` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_76` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='family';
+
+-- ----------------------------
+-- Records of farm_resume_family
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_resume_files`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_files`;
+CREATE TABLE `farm_resume_files` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `FILEID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_74` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_resume_files
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_resume_intension`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_intension`;
+CREATE TABLE `farm_resume_intension` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `WORKNATURE` varchar(2) NOT NULL COMMENT '1全职2兼职3实习',
+  `WORKADDRAREA` varchar(32) DEFAULT NULL,
+  `WORKADDR` varchar(64) DEFAULT NULL,
+  `WORKOCCUPATION` varchar(32) DEFAULT NULL,
+  `WORKINDUSTRY` varchar(32) DEFAULT NULL,
+  `WORKPAY` int(11) DEFAULT NULL,
+  `WORKSTAT` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_75` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=' Intension';
+
+-- ----------------------------
+-- Records of farm_resume_intension
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_resume_work`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_resume_work`;
+CREATE TABLE `farm_resume_work` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `NAME` varchar(64) NOT NULL,
+  `TYPE` varchar(2) DEFAULT NULL,
+  `POSTNAME` varchar(64) DEFAULT NULL,
+  `DATESTART` varchar(16) DEFAULT NULL,
+  `DATEEND` varchar(16) DEFAULT NULL,
+  `SALARY` varchar(16) DEFAULT NULL,
+  `WORKNOTE` varchar(2000) DEFAULT NULL,
+  `EPROPERTY` varchar(2) DEFAULT NULL,
+  `ESCALE` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_73` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_resume_work
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_rf_doctextfile`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_rf_doctextfile`;
+CREATE TABLE `farm_rf_doctextfile` (
+  `ID` varchar(32) NOT NULL,
+  `FILEID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `TEXTID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_12` (`DOCID`),
+  KEY `RFDTF_TEXTID` (`TEXTID`) USING BTREE,
+  KEY `RFDTF_FILEID` (`FILEID`) USING BTREE,
+  CONSTRAINT `FK_Reference_12` FOREIGN KEY (`DOCID`) REFERENCES `farm_doc` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_rf_doctextfile
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_rf_doctype`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_rf_doctype`;
+CREATE TABLE `farm_rf_doctype` (
+  `ID` varchar(32) NOT NULL,
+  `TYPEID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_14` (`TYPEID`),
+  KEY `FK_Reference_15` (`DOCID`),
+  CONSTRAINT `FK_Reference_14` FOREIGN KEY (`TYPEID`) REFERENCES `farm_doctype` (`ID`),
+  CONSTRAINT `FK_Reference_15` FOREIGN KEY (`DOCID`) REFERENCES `farm_doc` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_rf_doctype
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_share_link`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_share_link`;
+CREATE TABLE `farm_share_link` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `NAME` varchar(256) NOT NULL,
+  `DOCTYPE` varchar(16) NOT NULL,
+  `APPID` varchar(32) DEFAULT NULL,
+  `SHARETYPE` varchar(16) NOT NULL,
+  `SHARELIVE` varchar(16) NOT NULL,
+  `VISITNUM` int(11) DEFAULT NULL,
+  `SHAREKEY` varchar(32) NOT NULL,
+  `SHARESECRET` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_share_link
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_top`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_top`;
+CREATE TABLE `farm_top` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `DOCID` varchar(32) DEFAULT NULL,
+  `SORT` int(11) NOT NULL,
+  `TYPE` varchar(1) NOT NULL,
+  `TITLE` varchar(128) NOT NULL,
+  `URL` varchar(512) NOT NULL,
+  `IMGID` varchar(32) DEFAULT NULL,
+  `MODEL` varchar(1) NOT NULL,
+  `VISITNUM` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_61` (`DOCID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_top
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_user_judge`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_user_judge`;
+CREATE TABLE `farm_user_judge` (
+  `ID` varchar(32) NOT NULL,
+  `JUDGEID` varchar(32) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `USERKEY` varchar(32) NOT NULL,
+  `JUDGETIME` varchar(16) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_user_judge
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_usermessage`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_usermessage`;
+CREATE TABLE `farm_usermessage` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSER` varchar(32) DEFAULT NULL,
+  `CUSERNAME` varchar(64) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `READUSERID` varchar(32) NOT NULL,
+  `CONTENT` text NOT NULL,
+  `TITLE` varchar(64) NOT NULL,
+  `READSTATE` varchar(2) NOT NULL COMMENT '0未读、1已读',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_usermessage
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_userop_audit`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_userop_audit`;
+CREATE TABLE `farm_userop_audit` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `APPLYREASON` varchar(1024) DEFAULT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `APPID` varchar(32) DEFAULT NULL,
+  `OPTYPE` varchar(2) NOT NULL,
+  `OPTITLE` varchar(128) NOT NULL,
+  `SAFECODE` varchar(32) DEFAULT NULL,
+  `ATIME` varchar(16) DEFAULT NULL,
+  `AUSERNAME` varchar(64) DEFAULT NULL,
+  `AUSER` varchar(32) DEFAULT NULL,
+  `AUDITREASON` varchar(1024) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_userop_audit
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_wda_convertlog`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_wda_convertlog`;
+CREATE TABLE `farm_wda_convertlog` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL COMMENT '1开始转换，2完成转换，0转换失败',
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `FILEID` varchar(32) NOT NULL,
+  `EXNAME` varchar(16) NOT NULL COMMENT 'Exname',
+  `TITLE` varchar(64) NOT NULL,
+  `DOCID` varchar(32) NOT NULL,
+  `ETIME` varchar(16) DEFAULT NULL,
+  `ERRORINFO` varchar(1024) DEFAULT NULL,
+  `ERRORNUM` int(11) NOT NULL DEFAULT '0',
+  `APPID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_wda_convertlog
+-- ----------------------------
+INSERT INTO `farm_wda_convertlog` VALUES ('4028b8816cdce291016cdcea54f90020', '20190829182720', '系统管理员', '0', null, '4028b8816cdce291016cdce54d400001', 'txt', '内容1.txt', '4028b8816cdce291016cdce55c000004', '20190829182751', null, '0', '4028b8816cdce2cc016cdcea58810020');
+
+-- ----------------------------
+-- Table structure for `farm_weburl`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_weburl`;
+CREATE TABLE `farm_weburl` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `EUSERNAME` varchar(64) NOT NULL,
+  `EUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `URL` varchar(512) NOT NULL,
+  `WEBNAME` varchar(64) NOT NULL,
+  `SORT` int(11) NOT NULL,
+  `FILEID` varchar(32) DEFAULT NULL,
+  `TYPE` varchar(1) NOT NULL,
+  `VARS` varchar(1024) DEFAULT NULL,
+  `TITLES` varchar(1024) DEFAULT NULL,
+  `JSCRIPT` text,
+  `METHOD` varchar(1) NOT NULL,
+  `HANDLEIMPL` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_weburl
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `farm_weburl_uservar`
+-- ----------------------------
+DROP TABLE IF EXISTS `farm_weburl_uservar`;
+CREATE TABLE `farm_weburl_uservar` (
+  `ID` varchar(32) NOT NULL,
+  `WEBURLID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `PARAS` text NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_58` (`WEBURLID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of farm_weburl_uservar
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_qanswer`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_qanswer`;
+CREATE TABLE `wcp_qanswer` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `QUESTIONID` varchar(32) NOT NULL,
+  `DESCRIPTION` text NOT NULL,
+  `ADOPTTIME` varchar(32) DEFAULT NULL,
+  `ANSWERINGNUM` int(11) NOT NULL,
+  `PRAISENO` int(11) NOT NULL,
+  `PRAISEYES` int(10) unsigned NOT NULL DEFAULT '0',
+  `ANONYMOUS` varchar(1) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_Reference_46` (`QUESTIONID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_qanswer
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_qanswer_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_qanswer_comment`;
+CREATE TABLE `wcp_qanswer_comment` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `DESCRIPTION` text NOT NULL,
+  `ANSWERID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_QA6` (`ANSWERID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_qanswer_comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_qanswer_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_qanswer_detail`;
+CREATE TABLE `wcp_qanswer_detail` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) DEFAULT NULL,
+  `CUSER` varchar(32) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `VTYPE` varchar(2) NOT NULL COMMENT '2好评、3差评',
+  `USERIP` varchar(128) NOT NULL,
+  `ANSWERID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_QA4` (`ANSWERID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_qanswer_detail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_qanswer_plus`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_qanswer_plus`;
+CREATE TABLE `wcp_qanswer_plus` (
+  `ID` varchar(32) NOT NULL,
+  `ANSWERID` varchar(32) NOT NULL,
+  `DESCRIPTION` text NOT NULL,
+  `CTIME` varchar(14) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_QA5` (`ANSWERID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_qanswer_plus
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_question`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_question`;
+CREATE TABLE `wcp_question` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) NOT NULL,
+  `CUSER` varchar(32) NOT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `PCONTENT` varchar(128) DEFAULT NULL,
+  `TAGS` varchar(256) DEFAULT NULL,
+  `TYPEID` varchar(32) DEFAULT NULL,
+  `PRICE` int(10) unsigned NOT NULL DEFAULT '0',
+  `TITLE` varchar(64) NOT NULL,
+  `DESCRIPTION` text NOT NULL,
+  `PUBTIME` varchar(16) NOT NULL DEFAULT '0',
+  `ENDTIME` varchar(16) DEFAULT '0',
+  `ANONYMOUS` varchar(2) NOT NULL DEFAULT '0' COMMENT '1匿名0实名',
+  `ANSWERS` int(10) unsigned NOT NULL DEFAULT '0',
+  `ATTENTIONS` int(11) NOT NULL DEFAULT '0',
+  `PRAISENO` int(11) NOT NULL,
+  `PRAISEYES` int(10) unsigned NOT NULL DEFAULT '0',
+  `VISITNUM` int(10) unsigned NOT NULL DEFAULT '0',
+  `ANSWERINGNUM` int(11) NOT NULL,
+  `SHORTDESC` varchar(256) NOT NULL,
+  `IMGID` varchar(32) DEFAULT NULL,
+  `HOTNUM` int(11) NOT NULL,
+  `ETIME` varchar(16) NOT NULL,
+  `QANSWERID` varchar(32) DEFAULT NULL,
+  `LASTVTIME` varchar(12) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_question
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_question_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_question_detail`;
+CREATE TABLE `wcp_question_detail` (
+  `ID` varchar(32) NOT NULL,
+  `CTIME` varchar(16) NOT NULL,
+  `CUSERNAME` varchar(64) DEFAULT NULL,
+  `CUSER` varchar(32) DEFAULT NULL,
+  `PSTATE` varchar(2) NOT NULL,
+  `VTYPE` varchar(2) NOT NULL COMMENT '2好评、3差评',
+  `USERIP` varchar(128) NOT NULL,
+  `QUESTIONID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_QA3` (`QUESTIONID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_question_detail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_question_enjoy`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_question_enjoy`;
+CREATE TABLE `wcp_question_enjoy` (
+  `ID` varchar(32) NOT NULL,
+  `USERID` varchar(32) NOT NULL,
+  `QUESTIONID` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_QA1` (`QUESTIONID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_question_enjoy
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `wcp_question_plus`
+-- ----------------------------
+DROP TABLE IF EXISTS `wcp_question_plus`;
+CREATE TABLE `wcp_question_plus` (
+  `ID` varchar(32) NOT NULL,
+  `QUESTIONID` varchar(32) NOT NULL,
+  `DESCRIPTION` text NOT NULL,
+  `CTIME` varchar(14) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_QA2` (`QUESTIONID`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of wcp_question_plus
+-- ----------------------------
